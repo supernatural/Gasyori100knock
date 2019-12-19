@@ -67,11 +67,11 @@ def HOG(img):
             for x in range(cell_N_W):
                 for j in range(N):
                     for i in range(N):
-                        histogram[y, x, gradient_quantized[y * 4 + j, x * 4 + i]] += magnitude[y * 4 + j, x * 4 + i]
+                        histogram[y, x, gradient_quantized[y * N + j, x * N + i]] += magnitude[y * N + j, x * N + i]
 
         return histogram
 
-		# histogram normalization
+    # histogram normalization
     def normalization(histogram, C=3, epsilon=1):
         cell_N_H, cell_N_W, _ = histogram.shape
         ## each histogram
